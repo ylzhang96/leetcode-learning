@@ -10,14 +10,17 @@ from typing import List
 
 
 class Solution:
-    # Q1 解法一 两轮循环 7400 ms
+    # Q1 两数之和 解法一 两层循环 7400 ms O(n^2)
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         for i, num1 in enumerate(nums):
             for j, num2 in enumerate(nums[i + 1:]):
                 if num1 + num2 == target:
                     return [i, i + j + 1]
 
-    # Q2 解法二 哈希 40 ms
+    # Q1 两数之和 解法二 哈希(Python中即dict) 40 ms O(n)
+    # 这道题本质是查找target-nums[i]在nums中的位置 查找->哈希
+    # 边检查每个元素的target-nums[i]是否存在在之前建立的字典中
+    # 边将nums数组中每个元素的值nums[i]与索引i添加进字典
     def twoSum_2(self, nums: List[int], target: int) -> List[int]:
         dic = {}
         for i, num in enumerate(nums):
@@ -25,6 +28,21 @@ class Solution:
                 return [dic[target - num], i]
             else:
                 dic[num] = i  # 因为只有一个答案，所以不可能存在[2,2,7] 9 第二个2代替第一个2的情况
+
+    # Q167 两数之和II numbers是升序数组 双指针解法 O(n)
+    # 两个指针low/high指向头尾 头尾元素加起来小于target则头指针后移，大于则尾指针前移
+    def twoSum2(self, numbers: List[int], target: int) -> List[int]:
+        low = 0
+        high = len(numbers) - 1
+        while low < high:
+            sum = numbers[low] + numbers[high]
+            if sum == target:
+                return [low + 1, high + 1]
+            elif sum < target:
+                low += 1
+            elif sum > target:
+                high -= 1
+
 
     # Q7
     def reverse(self, x: int) -> int:
@@ -82,7 +100,8 @@ if __name__ == "__main__":
     s = Solution()
     # print(s.twoSum([1, 2, 3, 4], 5))  # (0, 3)
     # print(s.twoSum([3, 3], 6))  # (0, 1)
+    print(s.twoSum2([2, 7, 11, 15], 9))
     # print(s.reverse(123))
     # print(s.reverse(1534236469))
     # print(s.isPalindrome(20))
-    print(s.isValid("()[{]"))
+    # print(s.isValid("()[{]"))
