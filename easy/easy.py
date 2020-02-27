@@ -10,14 +10,14 @@ from typing import List
 
 
 class Solution:
-    # Q1 两数之和 解法一 两层循环 7400 ms O(n^2)
+    # Q1 两数之和 解法一 两层循环 7400 ms O(n^2) d200108
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         for i, num1 in enumerate(nums):
             for j, num2 in enumerate(nums[i + 1:]):
                 if num1 + num2 == target:
                     return [i, i + j + 1]
 
-    # Q1 两数之和 解法二 哈希(Python中即dict) 40 ms O(n)
+    # Q1 两数之和 解法二 哈希(Python中即dict) 40 ms O(n) d200108
     # 这道题本质是查找target-nums[i]在nums中的位置 查找->哈希
     # 边检查每个元素的target-nums[i]是否存在在之前建立的字典中
     # 边将nums数组中每个元素的值nums[i]与索引i添加进字典
@@ -29,7 +29,7 @@ class Solution:
             else:
                 dic[num] = i  # 因为只有一个答案，所以不可能存在[2,2,7] 9 第二个2代替第一个2的情况
 
-    # Q167 两数之和II numbers是升序数组 双指针解法 O(n)
+    # Q167 两数之和II numbers是升序数组 双指针解法 O(n) d200225
     # 两个指针low/high指向头尾 头尾元素加起来小于target则头指针后移，大于则尾指针前移
     def twoSum2(self, numbers: List[int], target: int) -> List[int]:
         low = 0
@@ -44,7 +44,7 @@ class Solution:
                 high -= 1
 
 
-    # Q7
+    # Q7 d200109
     def reverse(self, x: int) -> int:
         if x < 0:
             is_negative = True
@@ -54,7 +54,7 @@ class Solution:
         result = result if not is_negative else -result
         # result = result if -(1>>31) < x <
 
-    # Q7 optimization for C
+    # Q7 optimization for C d200109
     def reverse_2(self, x: int) -> int:
         num = x if x > 0 else -x
         result = 0
@@ -65,7 +65,7 @@ class Solution:
             return 0
         return result if x > 0 else -result
 
-    # Q9
+    # Q9 d200224
     def isPalindrome(self, x: int) -> bool:
         if x < 0:
             return False
@@ -79,7 +79,7 @@ class Solution:
         else:
             return False
 
-    # Q20 Stack
+    # Q20 Stack d200224
     def isValid(self, s: str) -> bool:
         s_list = []
         for i in s:

@@ -10,11 +10,11 @@ from typing import List
 
 
 class Solution:
-    # Q58 最后一个单词的长度
+    # Q58 最后一个单词的长度 d200225
     def lengthOfLastWord(self, s: str) -> int:
         return len(s.strip().split(" ")[-1]) if len(s.strip()) > 0 else 0
 
-    # Q929 独特的电子邮件地址 集合
+    # Q929 独特的电子邮件地址 集合 d200225
     def numUniqueEmails(self, emails: List[str]) -> int:
         s = set()
         for email in emails:

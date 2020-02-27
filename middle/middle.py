@@ -11,7 +11,7 @@ from typing import List
 
 class Solution:
 
-    # Q15 三数之和 a+b+c=0 排序 固定a 双指针如Q167查找b+c O(n^2)+O(nlgn)=O(n^2)
+    # Q15 三数之和 a+b+c=0 排序 固定a 双指针如Q167查找b+c O(n^2)+O(nlgn)=O(n^2)  d200225
     # 暴力求解O(n^3)  看作是a+b查找-a-b O(nlgn)  看作固定a双指针查找b+c O(n^2)
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         l = len(nums)
@@ -42,7 +42,7 @@ class Solution:
                     high -= 1
         return ans  # [0,0,0]
 
-    # Q16 最接近的三数之和 排序+双指针 O(n^2)+O(nlgn)
+    # Q16 最接近的三数之和 排序+双指针 O(n^2)+O(nlgn)  d200226
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         nums.sort()
         l = len(nums)
@@ -62,7 +62,7 @@ class Solution:
                     return target  # 差距为0
         return ans + target
 
-    # Q18 四数之和 三数和基础上多加一层循环
+    # Q18 四数之和 三数和基础上多加一层循环  d200226
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         l = len(nums)
         if l < 4:
@@ -93,7 +93,7 @@ class Solution:
                         high -= 1
         return ans  # [0, 0, 0, 0]
 
-    # Q454 四数之和II 暴力搜索TLE 拆分成二循环+hash可以过 O(n^2)
+    # Q454 四数之和II 暴力搜索TLE 拆分成二循环+hash可以过 O(n^2)  d200226
     def fourSumCount(self, A: List[int], B: List[int], C: List[int], D: List[int]) -> int:
         ans = 0
         dic = {}  # 数：次数

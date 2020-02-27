@@ -6,6 +6,7 @@
 # @FileName : middle2.py
 # @Time     : 2020.02.26
 
+# 两个单链表相加
 
 
 class ListNode:
@@ -15,7 +16,7 @@ class ListNode:
 
 
 class Solution:
-    # Q2 两数相加 低位-高位
+    # Q2 两数相加 低位-高位 d200226
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         value = l1.val + l2.val
         ans = ListNode(value % 10)
@@ -44,7 +45,7 @@ class Solution:
             l.next = ListNode(1)
         return ans
 
-    # Q445 两数相加II 高位-低位 无法倒转 用栈 先进后出
+    # Q445 两数相加II 高位-低位 无法倒转 用栈 先进后出 d200226
     def addTwoNumbers2(self, l1: ListNode, l2: ListNode) -> ListNode:
         stack_1 = []
         stack_2 = []
